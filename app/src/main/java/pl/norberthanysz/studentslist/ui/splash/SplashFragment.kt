@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import pl.norberthanysz.studentslist.R
 import pl.norberthanysz.studentslist.databinding.SplashFragmentBinding
 
 class SplashFragment : Fragment() {
 
-    private val splashScreenDelay: Long = 500
+    private val splashScreenDelay: Long = 2000
 
     private lateinit var binding: SplashFragmentBinding
 
@@ -33,7 +34,7 @@ class SplashFragment : Fragment() {
         binding.view = this
 
         Handler().postDelayed({
-            //todo go to students view
+            findNavController().navigate(R.id.action_splashFragment_to_studentsListFragment)
         }, splashScreenDelay)
     }
 
