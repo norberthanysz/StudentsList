@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.students_list_fragment.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import pl.norberthanysz.studentslist.R
 import pl.norberthanysz.studentslist.databinding.StudentsListFragmentBinding
 import pl.norberthanysz.studentslist.models.UIState
@@ -39,12 +43,21 @@ class StudentsListFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner, { uiState ->
 
             when (uiState) {
-                is UIState.Initialized -> {}
-                is UIState.InProgress -> {}
-                is UIState.NotInProgress -> {}
-                is UIState.ShowList -> {}
-                is UIState.ShowError -> {}
+                is UIState.Initialized -> GlobalScope.launch {
+                    viewModel.getStudentsList()
+                }
+                is UIState.InProgress -> progressBar.visibility = View.VISIBLE
+                is UIState.NotInProgress -> progressBar.visibility = View.INVISIBLE
+                is UIState.ShowList -> initList()
+                is UIState.ShowError -> {
+                    progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(context, getString(R.string.error_message), Toast.LENGTH_LONG).show()
+                }
             }
         })
+    }
+
+    private fun initList() {
+        viewModel.getPreparedList()
     }
 }
