@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.students_list_fragment.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -20,6 +21,9 @@ class StudentsListFragment : Fragment() {
 
     private lateinit var binding: StudentsListFragmentBinding
     private lateinit var viewModel: StudentsListViewModel
+
+    lateinit var layoutManager: LinearLayoutManager
+    lateinit var studentsListAdapter: StudentsListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,7 +54,7 @@ class StudentsListFragment : Fragment() {
                 is UIState.NotInProgress -> progressBar.visibility = View.INVISIBLE
                 is UIState.ShowList -> initList()
                 is UIState.ShowError -> {
-                    progressBar.visibility = View.INVISIBLE
+                    viewModel.uiState.value = UIState.NotInProgress
                     Toast.makeText(context, getString(R.string.error_message), Toast.LENGTH_LONG).show()
                 }
             }
@@ -58,6 +62,10 @@ class StudentsListFragment : Fragment() {
     }
 
     private fun initList() {
-        viewModel.getPreparedList()
+        layoutManager = LinearLayoutManager(context)
+        studentsRecyclerView.layoutManager = layoutManager
+        studentsListAdapter = StudentsListAdapter(viewModel.getPreparedList())
+        studentsRecyclerView.adapter = studentsListAdapter
+        viewModel.uiState.value = UIState.NotInProgress
     }
 }

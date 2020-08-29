@@ -19,7 +19,7 @@ class StudentsListViewModel : ViewModel() {
         studentsRepository.getStudents().let {
             if (it != null) {
                 studentsList = it
-                uiState.postValue(UIState.ShowError)
+                uiState.postValue(UIState.ShowList)
             } else {
                 uiState.postValue(UIState.ShowError)
             }
