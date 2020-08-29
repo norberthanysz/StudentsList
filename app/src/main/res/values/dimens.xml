@@ -2,4 +2,7 @@
 <resources>
     <dimen name="splash_text_size">36sp</dimen>
     <dimen name="splash_logo_size">200dp</dimen>
+    <dimen name="default_margin">10dp</dimen>
+    <dimen name="item_text_size">16sp</dimen>
+    <dimen name="student_item_image_size">50dp</dimen>
 </resources>

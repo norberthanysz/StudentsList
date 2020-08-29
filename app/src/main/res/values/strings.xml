@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">StudentsList</string>
     <string name="students">Students</string>
+    <string name="error_message">Something went wrong</string>
+    <string name="status_ok">Student</string>
+    <string name="status_not_ok">Not a student</string>
 </resources>
