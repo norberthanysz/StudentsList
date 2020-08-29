@@ -3,7 +3,7 @@ Simple students list app with download data from [this](https://www.mocky.io/v2/
 
 ## Implemented libraries: 
 - Databinding
-- Retrofit 
+- Retrofit2
 - Navigation Controler 
 - Material designs 
 - Kotlin coroutines 
