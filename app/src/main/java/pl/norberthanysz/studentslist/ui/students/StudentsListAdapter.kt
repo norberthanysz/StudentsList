@@ -20,7 +20,7 @@ class StudentsListAdapter(
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         holder.name.text = studentsList[position].name
-        holder.age.text = getAge(studentsList[position].yearOfBirth).toString()
+        holder.age.text = getAge(studentsList[position].yearOfBirth).toString() + " yo"
         if (studentsList[position].status) {
             holder.status.setTextColor(holder.status.context.resources.getColor(R.color.status_ok))
             holder.status.text = holder.status.context.getString(R.string.status_ok)

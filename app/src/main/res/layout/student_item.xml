@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/default_margin"
-    android:background="@android:color/white">
+    android:background="@drawable/student_item_rounded_background">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/image"
         android:layout_width="@dimen/student_item_image_size"
         android:layout_height="@dimen/student_item_image_size"
-        android:tint="@android:color/darker_gray"
+        android:tint="@color/item_text_color"
         app:srcCompat="@drawable/ic_item_image"
         tools:ignore="MissingConstraints" />
 
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/item_text_color"
         android:textSize="@dimen/item_text_size"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/image"
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_margin"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/item_text_color"
         android:textSize="@dimen/item_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/image"

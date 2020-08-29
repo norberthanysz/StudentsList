@@ -6,4 +6,5 @@
 
     <color name="status_ok">#006600</color>
     <color name="status_not_ok">#660000</color>
+    <color name="item_text_color">#606060</color>
 </resources>
