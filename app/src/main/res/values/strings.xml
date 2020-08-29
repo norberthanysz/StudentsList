@@ -4,4 +4,5 @@
     <string name="error_message">Something went wrong</string>
     <string name="status_ok">Student</string>
     <string name="status_not_ok">Not a student</string>
+    <string name="close_app_info_text">Please click BACK again to exit</string>
 </resources>
